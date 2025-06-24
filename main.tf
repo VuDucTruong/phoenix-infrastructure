@@ -20,9 +20,3 @@ module "aks" {
   location            = var.location
   prefix              = var.prefix
 }
-
-
-
-output "key_vault_uri" {
-  value = module.keyvault.key_vault_uri
-}
