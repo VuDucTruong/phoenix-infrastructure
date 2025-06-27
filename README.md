@@ -1,9 +1,22 @@
-1. terraform plan
-2. terraform apply --auto-approve
-3.2. terraform output -raw kube_config > kubeconfig.yaml
-4. kubectl apply -f k8s.yml --kubeconfig=./kubeconfig.yaml
-5. kubectl --kubeconfig=./kubeconfig.yaml get pods,svc
-6. terraform output -raw azure_credentials
-az ad sp show --id <client_id> --query objectId --output tsv
 
---json-auth instead of --auth-sdk
+**Here is the Terraform code for infrastructure AKS + Key vault for my backend spring boot
+1. You need to create a ARBAC by using this command : 
+az ad sp create-for-rbac --name admin-sp --role Owner --scopes /subscriptions/<your subcription id> --json-auth
+2. Create terraform.tfvars to store secrets that will be used for building infrastructure :
+``` terraform.tfvars
+location            = <Your location of cluster>
+resource_group_name = <Your resource group name>
+prefix              = <Your prefix>
+subscription_id = <Your subscription id>
+tenant_id       = <Your tenant id>
+client_id      = <Your client id>
+client_secret  = <Your client secret>
+```
+3. Use this command to initialize the infrastructure in terraform :
+``` command
+terraform init
+```
+4. Choose your options:
+- terraform plan : Plan which will be created in your infrastrucure
+- terraform apply --auto-approve : This command will create your infrastructure (~5 mins)
+- terraform destroy --auto-approve : This command will destroy your entire infrastructure
