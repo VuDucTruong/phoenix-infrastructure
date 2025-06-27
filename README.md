@@ -1,7 +1,9 @@
 
-**Here is the Terraform code for infrastructure AKS + Key vault for my backend spring boot
-1. You need to create a ARBAC by using this command : 
+## Here is the Terraform code for infrastructure AKS + Key vault for my backend spring boot
+1. You need to create a **service principal** by using this command : 
+``` command
 az ad sp create-for-rbac --name admin-sp --role Owner --scopes /subscriptions/<your subcription id> --json-auth
+```
 2. Create terraform.tfvars to store secrets that will be used for building infrastructure :
 ``` terraform.tfvars
 location            = <Your location of cluster>
