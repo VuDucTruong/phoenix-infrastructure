@@ -37,7 +37,7 @@ resource "azurerm_key_vault_secret" "secrets_file" {
 
 resource "azurerm_key_vault_secret" "grafana_email_password" {
   name         = "grafana-email-password"
-  value        = var.secrets_file_content
+  value        = var.grafana_email_password
   key_vault_id = azurerm_key_vault.kv.id
 
 
