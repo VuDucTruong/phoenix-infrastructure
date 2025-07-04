@@ -12,6 +12,7 @@ module "keyvault" {
   tenant_id           = data.azurerm_client_config.current.tenant_id
   secrets_file_content = file("${path.module}/secrets.yaml")
   object_id = data.azurerm_client_config.current.object_id
+  grafana_email_password = var.grafana_email_password
 }
 
 module "aks" {

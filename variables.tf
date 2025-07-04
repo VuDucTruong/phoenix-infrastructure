@@ -29,3 +29,8 @@ variable "client_secret" {
   type = string
   description = "Client secret for the Azure service principal"
 }
+
+variable "grafana_email_password" {
+  type        = string
+  description = "Password for Grafana email"
+}
