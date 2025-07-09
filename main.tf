@@ -20,4 +20,5 @@ module "aks" {
   resource_group_name = azurerm_resource_group.main.name
   location            = var.location
   prefix              = var.prefix
+  vm_size = var.vm_size
 }

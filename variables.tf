@@ -34,3 +34,8 @@ variable "grafana_email_password" {
   type        = string
   description = "Password for Grafana email"
 }
+
+variable "vm_size" {
+  description = "Size of the virtual machines in the AKS cluster"
+  type        = string
+}
