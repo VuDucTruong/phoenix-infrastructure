@@ -34,3 +34,9 @@ variable "vm_size" {
   description = "Size of the virtual machines in the AKS cluster"
   type        = string
 }
+
+
+variable "secrets" {
+  description = "Map of secrets to be used in the AKS cluster"
+  type        = map(string)
+}

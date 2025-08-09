@@ -14,3 +14,10 @@ resource "azurerm_key_vault_access_policy" "user" {
 
   secret_permissions = ["Get", "Set", "List", "Delete", "Recover", "Purge"]
 }
+
+resource "azurerm_key_vault_secret" "secrets" {
+  for_each     = var.initial_secrets
+  name         = each.key
+  value        = each.value
+  key_vault_id = azurerm_key_vault.kv.id
+}
